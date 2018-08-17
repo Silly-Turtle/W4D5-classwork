@@ -94,3 +94,14 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def log_in(user)
+  visit new_session_url
+  fill_in('name', with: user.name)
+  fill_in('password', with: user.password)
+  click_button('Log In')
+end
+
+def log_out(user)
+  click_button ('Log Out')
+end
